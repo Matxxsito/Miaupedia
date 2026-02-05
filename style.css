@@ -1,0 +1,180 @@
+/* =========================
+   RESET BÁSICO
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+body {
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #ffffff;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #ffcc00;
+}
+
+.header p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* =========================
+   CONTENEDOR PRINCIPAL (INDEX)
+========================= */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  padding: 20px;
+}
+
+/* =========================
+   CARD (CATEGORÍAS)
+========================= */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  text-align: center;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-height: 420px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+   CONTENEDOR DE IMAGEN
+========================= */
+.img-box {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+/* IMAGEN CONTROLADA */
+.img-box img {
+  max-width: 85%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+/* HOVER DE IMAGEN */
+.card:hover .img-box img {
+  transform: scale(1.08);
+}
+
+/* =========================
+   TEXTO DE LAS CARDS
+========================= */
+.card h2 {
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+  color: #ffcc00;
+}
+
+.card p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.5;
+}
+
+/* =========================
+   CONTENIDO INTERNO (PÁGINAS)
+========================= */
+.content {
+  max-width: 800px;
+  margin: auto;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.content h1 {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+  color: #ffcc00;
+}
+
+.content p {
+  margin-bottom: 18px;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  opacity: 0.95;
+}
+
+/* =========================
+   BOTÓN
+========================= */
+.btn {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 12px 26px;
+  background: #ffcc00;
+  color: #222;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  text-align: center;
+  padding: 25px 20px;
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2.3rem;
+  }
+
+  .content h1 {
+    font-size: 2rem;
+  }
+
+  .card {
+    min-height: auto;
+  }
+}

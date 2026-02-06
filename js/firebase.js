@@ -1,23 +1,18 @@
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+import { getStorage } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
-<script>
 const firebaseConfig = {
-  apiKey: "AIzaSyCvwYztzOuW5CQ4rCWSgNFLhAifIjxB5eo",
-  authDomain: "miaupedia-11d46.firebaseapp.com",
-  projectId: "miaupedia-11d46",
-  storageBucket: "miaupedia-11d46.firebasestorage.app",
-  messagingSenderId: "616954573945",
-  appId: "1:616954573945:web:4e5ad40fa3927b518650a8",
-  measurementId: "G-YFK9Z79C83"
-
+  apiKey: "AIzaSyAJ87L8ACkWKG2bBu-HbG0TgYOQZg5YGQY",
+  authDomain: "miaupedia-foro.firebaseapp.com",
+  projectId: "miaupedia-foro",
+  storageBucket: "miaupedia-foro.firebasestorage.app",
+  messagingSenderId: "385468610938",
+  appId: "1:385468610938:web:3157051f01e1d6e0e7fec3"
 };
 
-firebase.initializeApp(firebaseConfig);
-
-const auth = firebase.auth();
-const db = firebase.firestore();
-const storage = firebase.storage();
-</script>
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+export const storage = getStorage(app);

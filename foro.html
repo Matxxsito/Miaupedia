@@ -3,24 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <title>Foro | MIAUPEDIA</title>
-  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="content">
-  <h1>🐾 Foro Gatuno</h1>
+<h1>Foro Gatuno</h1>
 
-  <textarea id="mensaje" placeholder="Comparte algo sobre tu gato"></textarea>
-  <input type="file" id="imagen" accept="image/*">
+<button id="publicarBtn">Publicar</button>
 
-  <button id="publicarBtn">Publicar</button>
+<script>
+  alert("HTML CARGADO");
 
-  <div id="posts"></div>
-</div>
-
-<!-- SOLO ESTOS DOS SCRIPTS -->
-<script type="module" src="js/firebase.js"></script>
-<script type="module" src="js/foro.js"></script>
+  document.getElementById("publicarBtn").addEventListener("click", () => {
+    alert("BOTÓN FUNCIONA");
+  });
+</script>
 
 </body>
 </html>

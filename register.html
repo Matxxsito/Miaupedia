@@ -1,1 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Registro | MIAUPEDIA</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+<div class="content">
+  <h1>Crear cuenta</h1>
+
+  <input type="text" id="nombre" placeholder="Nombre">
+  <input type="email" id="email" placeholder="Correo">
+  <input type="password" id="password" placeholder="Contraseña">
+
+  <button onclick="registrar()">Registrarse</button>
+  <br><br>
+  <a href="login.html">¿Ya tienes cuenta?</a>
+</div>
+
+<script src="js/firebase.js"></script>
+<script>
+function registrar() {
+  const nombre = nombre.value;
+  const email = email.value;
+  const password = password.value;
+
+  auth.createUserWithEmailAndPassword(email, password)
+    .then(cred => {
+      return db.collection("usuarios").doc(cred.user.uid).set({
+        nombre: nombre,
+        email: email
+      });
+    })
+    .then(() => {
+      window.location.href = "foro.html";
+    })
+    .catch(err => alert(err.message));
+}
+</script>
+
+</body>
+</html>

@@ -48,7 +48,10 @@
   });
 
   // 📤 PUBLICAR POST
-  publicarBtn.addEventListener("click", async () => {
+publicarBtn.addEventListener("click", () => {
+  alert("BOTÓN FUNCIONA");
+});
+
     if (!mensaje.value || !imagen.files[0]) {
       alert("Escribe un mensaje y selecciona una imagen");
       return;

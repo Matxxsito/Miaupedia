@@ -123,73 +123,18 @@
 <body>
 
 <div class="card">
-  <span class="badge">GUÍA PREMIUM</span>
 
-  <h1>Guía Premium Supercell</h1>
-
-  <p class="description">
-    Todo lo que debes saber para mejorar tu rendimiento en
-    <strong>Clash of Clans</strong>, <strong>Clash Royale</strong> y
-    <strong>Brawl Stars</strong>.
-  </p>
-
-  <ul class="features">
-    <li>Estrategias actualizadas</li>
-    <li>Consejos para principiantes y avanzados</li>
-    <li>Errores comunes que debes evitar</li>
-    <li>Contenido claro y directo</li>
-  </ul>
-
-  <div class="price">$2.99 USD</div>
-
-  <!-- PAYPAL -->
-  <div id="paypal-button-container"></div>
-
-  <!-- DESCARGA -->
-  <div id="download">
-    <h3>✅ Pago confirmado</h3>
-    <a class="download-link"
-       href="https://usuario.github.io/supercell-blog/guias/guia-supercell.pdf"
-       target="_blank">
-       Descargar guía
-    </a>
-  </div>
-
-  <div class="legal">
-    Este es un producto digital independiente y no afiliado a Supercell.
-  </div>
-</div>
-
-<!-- PAYPAL SDK -->
-<script src="https://www.paypal.com/sdk/js?client-id=TU_CLIENT_ID&currency=USD"></script>
-
-<script>
-paypal.Buttons({
-  style: {
-    layout: 'vertical',
-    color: 'gold',
-    shape: 'pill',
-    label: 'paypal'
-  },
-
-  createOrder: function (data, actions) {
-    return actions.order.create({
-      purchase_units: [{
-        amount: {
-          value: '2.99'
-        }
-      }]
-    });
-  },
-
-  onApprove: function (data, actions) {
-    return actions.order.capture().then(function () {
-      document.getElementById('paypal-button-container').style.display = 'none';
-      document.getElementById('download').style.display = 'block';
-    });
-  }
-}).render('#paypal-button-container');
+    <script 
+  src="https://www.paypal.com/sdk/js?client-id=BAAA8KHI1xu5jr9F92xqfbSjzGA0tKxlNP665JKCXwJrddG08IuCGVjdDGy7jowcpyBK29Q2XL8FNORLkY&components=hosted-buttons&disable-funding=venmo&currency=USD">
 </script>
+  <div id="paypal-container-FNMSAMPQMEAMN"></div>
+<script>
+  paypal.HostedButtons({
+    hostedButtonId: "FNMSAMPQMEAMN",
+  }).render("#paypal-container-FNMSAMPQMEAMN")
+</script>
+
+</div>
 
 </body>
 </html>

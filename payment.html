@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Guía Premium de MIAUPEDIA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: radial-gradient(circle at top, #0f172a, #020617);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #e5e7eb;
+    }
+
+    .card {
+      background: rgba(30, 41, 59, 0.9);
+      backdrop-filter: blur(10px);
+      padding: 40px;
+      border-radius: 18px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      animation: fadeIn 0.8s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .badge {
+      display: inline-block;
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      color: #020617;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin: 10px 0;
+      color: #ffffff;
+    }
+
+    .description {
+      font-size: 15px;
+      color: #cbd5f5;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .features {
+      text-align: left;
+      margin-bottom: 25px;
+    }
+
+    .features li {
+      list-style: none;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    .features li::before {
+      content: "✔";
+      color: #22c55e;
+      margin-right: 8px;
+    }
+
+    .price {
+      font-size: 22px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #22c55e;
+    }
+
+    #paypal-button-container {
+      margin-top: 10px;
+    }
+
+    #download {
+      display: none;
+      margin-top: 30px;
+    }
+
+    .download-link {
+      display: inline-block;
+      background: linear-gradient(90deg, #22c55e, #16a34a);
+      color: #020617;
+      padding: 14px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: transform 0.2s ease;
+    }
+
+    .download-link:hover {
+      transform: scale(1.05);
+    }
+
+    .legal {
+      margin-top: 25px;
+      font-size: 12px;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="card">
+  <span class="badge">GUÍA PREMIUM</span>
+
+  <h1>Guía Premium Supercell</h1>
+
+  <p class="description">
+    Todo lo que debes saber para mejorar tu rendimiento en
+    <strong>Clash of Clans</strong>, <strong>Clash Royale</strong> y
+    <strong>Brawl Stars</strong>.
+  </p>
+
+  <ul class="features">
+    <li>Estrategias actualizadas</li>
+    <li>Consejos para principiantes y avanzados</li>
+    <li>Errores comunes que debes evitar</li>
+    <li>Contenido claro y directo</li>
+  </ul>
+
+  <div class="price">$2.99 USD</div>
+
+  <!-- PAYPAL -->
+  <div id="paypal-button-container"></div>
+
+  <!-- DESCARGA -->
+  <div id="download">
+    <h3>✅ Pago confirmado</h3>
+    <a class="download-link"
+       href="https://usuario.github.io/supercell-blog/guias/guia-supercell.pdf"
+       target="_blank">
+       Descargar guía
+    </a>
+  </div>
+
+  <div class="legal">
+    Este es un producto digital independiente y no afiliado a Supercell.
+  </div>
+</div>
+
+<!-- PAYPAL SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=TU_CLIENT_ID&currency=USD"></script>
+
+<script>
+paypal.Buttons({
+  style: {
+    layout: 'vertical',
+    color: 'gold',
+    shape: 'pill',
+    label: 'paypal'
+  },
+
+  createOrder: function (data, actions) {
+    return actions.order.create({
+      purchase_units: [{
+        amount: {
+          value: '2.99'
+        }
+      }]
+    });
+  },
+
+  onApprove: function (data, actions) {
+    return actions.order.capture().then(function () {
+      document.getElementById('paypal-button-container').style.display = 'none';
+      document.getElementById('download').style.display = 'block';
+    });
+  }
+}).render('#paypal-button-container');
+</script>
+
+</body>
+</html>

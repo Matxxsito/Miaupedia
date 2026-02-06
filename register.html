@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Registro | MIAUPEDIA</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Registro | MIAUPEDIA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="content">
   <h1>Crear cuenta</h1>
 
-  <input type="text" id="nombre" placeholder="Nombre">
-  <input type="email" id="email" placeholder="Correo">
-  <input type="password" id="password" placeholder="Contraseña">
+  <input
+    type="text"
+    id="nombre"
+    placeholder="Nombre de usuario"
+    required
+  >
 
-  <button onclick="registrar()">Registrarse</button>
-  <br><br>
-  <a href="login.html">¿Ya tienes cuenta?</a>
+  <input
+    type="email"
+    id="email"
+    placeholder="Correo electrónico"
+    required
+    autocomplete="email"
+  >
+
+  <input
+    type="password"
+    id="password"
+    placeholder="Contraseña"
+    required
+    autocomplete="new-password"
+  >
+
+  <button id="registerBtn" type="button">Registrarse</button>
+
+  <p style="margin-top: 18px; font-size: 0.95rem;">
+    ¿Ya tienes cuenta?
+    <a href="login.html" style="font-weight: bold;">
+      Inicia sesión
+    </a>
+  </p>
 </div>
 
-<script src="js/firebase.js"></script>
-<script>
-function registrar() {
-  const nombre = nombre.value;
-  const email = email.value;
-  const password = password.value;
+<!-- Firebase primero -->
+<script type="module" src="js/firebase.js"></script>
 
-  auth.createUserWithEmailAndPassword(email, password)
-    .then(cred => {
-      return db.collection("usuarios").doc(cred.user.uid).set({
-        nombre: nombre,
-        email: email
-      });
-    })
-    .then(() => {
-      window.location.href = "foro.html";
-    })
-    .catch(err => alert(err.message));
-}
-</script>
+<!-- Registro -->
+<script type="module" src="js/register.js"></script>
 
 </body>
 </html>

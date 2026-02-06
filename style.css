@@ -11,8 +11,12 @@
    BODY
 ========================= */
 body {
- background: #7d4622;
- background: linear-gradient(90deg, rgba(125, 70, 34, 1) 0%, rgba(214, 98, 56, 1) 50%, rgba(189, 94, 30, 1) 100%);
+  background: linear-gradient(
+    135deg,
+    #7d4622,
+    #d66238,
+    #bd5e1e
+  );
   color: #ffffff;
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
@@ -38,7 +42,7 @@ body {
 }
 
 /* =========================
-   CONTENEDOR PRINCIPAL (INDEX)
+   CONTENEDOR PRINCIPAL
 ========================= */
 .container {
   max-width: 1100px;
@@ -50,27 +54,27 @@ body {
 }
 
 /* =========================
-   CARD (CATEGORÍAS)
+   CARD
 ========================= */
 .card {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   padding: 25px;
   border-radius: 20px;
   text-decoration: none;
   color: #ffffff;
   text-align: center;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   min-height: 420px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
 /* =========================
-   CONTENEDOR DE IMAGEN
+   IMÁGENES
 ========================= */
 .img-box {
   width: 100%;
@@ -79,10 +83,8 @@ body {
   align-items: center;
   justify-content: center;
   margin-bottom: 15px;
-  overflow: hidden;
 }
 
-/* IMAGEN CONTROLADA */
 .img-box img {
   max-width: 85%;
   max-height: 100%;
@@ -90,28 +92,26 @@ body {
   transition: transform 0.3s ease;
 }
 
-/* HOVER DE IMAGEN */
 .card:hover .img-box img {
   transform: scale(1.08);
 }
 
 /* =========================
-   TEXTO DE LAS CARDS
+   TEXTO CARDS
 ========================= */
 .card h2 {
   margin-bottom: 10px;
   font-size: 1.4rem;
-  color: #ffffff;
 }
 
 .card p {
   font-size: 0.95rem;
-  opacity: 0.9;
   line-height: 1.5;
+  opacity: 0.95;
 }
 
 /* =========================
-   CONTENIDO INTERNO (PÁGINAS)
+   CONTENIDO INTERNO
 ========================= */
 .content {
   max-width: 800px;
@@ -123,14 +123,12 @@ body {
 .content h1 {
   font-size: 2.4rem;
   margin-bottom: 20px;
-  color: #ffffff;
 }
 
 .content p {
-  margin-bottom: 18px;
-  line-height: 1.7;
   font-size: 1.05rem;
-  opacity: 0.95;
+  line-height: 1.7;
+  margin-bottom: 18px;
 }
 
 /* =========================
@@ -139,9 +137,9 @@ body {
 .btn {
   display: inline-block;
   margin-top: 25px;
-  padding: 12px 26px;
+  padding: 12px 28px;
   background: #ffffff;
-  color: #222;
+  color: #3b1f0f;
   border-radius: 30px;
   text-decoration: none;
   font-weight: 700;
@@ -150,17 +148,95 @@ body {
 
 .btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
 }
 
 /* =========================
    FOOTER
 ========================= */
-.footer {
+.site-footer {
+  background: linear-gradient(
+    135deg,
+    #4e2a1a,
+    #7a3f24,
+    #a8572b
+  );
+  color: #ffffff;
+  margin-top: 60px;
+}
+
+/* CONTENEDOR FOOTER */
+.footer-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+
+/* LOGO */
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.footer-logo span {
+  margin-left: 5px;
+}
+
+/* TEXTO */
+.footer-about p {
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* REDES */
+.footer-social {
+  margin-top: 15px;
+}
+
+.footer-social a {
+  display: inline-block;
+  margin-right: 10px;
+  width: 36px;
+  height: 36px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
   text-align: center;
-  padding: 25px 20px;
-  font-size: 0.9rem;
-  opacity: 0.7;
+  line-height: 36px;
+  border-radius: 50%;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.footer-social a:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* CONTACTO */
+.footer-contact h3 {
+  margin-bottom: 10px;
+}
+
+.footer-contact a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-contact a:hover {
+  text-decoration: underline;
+}
+
+/* COPYRIGHT */
+.footer-bottom {
+  text-align: center;
+  padding: 15px;
+  font-size: 0.85rem;
+  background: rgba(0, 0, 0, 0.15);
 }
 
 /* =========================
@@ -171,11 +247,12 @@ body {
     font-size: 2.3rem;
   }
 
-  .content h1 {
-    font-size: 2rem;
+  .footer-container {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
 
-  .card {
-    min-height: auto;
+  .footer-social {
+    justify-content: center;
   }
 }

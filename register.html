@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Registro | MIAUPEDIA</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,44 +10,50 @@
 <div class="content">
   <h1>Crear cuenta</h1>
 
-  <input
-    type="text"
-    id="nombre"
-    placeholder="Nombre de usuario"
-    required
-  >
+  <input type="text" id="nombre" placeholder="Nombre">
+  <input type="email" id="email" placeholder="Correo">
+  <input type="password" id="password" placeholder="Contraseña">
 
-  <input
-    type="email"
-    id="email"
-    placeholder="Correo electrónico"
-    required
-    autocomplete="email"
-  >
-
-  <input
-    type="password"
-    id="password"
-    placeholder="Contraseña"
-    required
-    autocomplete="new-password"
-  >
-
-  <button id="registerBtn" type="button">Registrarse</button>
-
-  <p style="margin-top: 18px; font-size: 0.95rem;">
-    ¿Ya tienes cuenta?
-    <a href="login.html" style="font-weight: bold;">
-      Inicia sesión
-    </a>
-  </p>
+  <button id="registerBtn">Registrarse</button>
+  <br><br>
+  <a href="login.html">¿Ya tienes cuenta?</a>
 </div>
 
-<!-- Firebase primero -->
-<script type="module" src="js/firebase.js"></script>
+<!-- Firebase -->
+<script type="module">
+  import { auth, db } from "./js/firebase.js";
+  import { createUserWithEmailAndPassword } from
+    "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+  import { doc, setDoc } from
+    "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-<!-- Registro -->
-<script type="module" src="js/register.js"></script>
+  document.getElementById("registerBtn").addEventListener("click", async () => {
+
+    const nombre = document.getElementById("nombre").value;
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+
+    if (!nombre || !email || !password) {
+      alert("Completa todos los campos");
+      return;
+    }
+
+    try {
+      const cred = await createUserWithEmailAndPassword(auth, email, password);
+
+      await setDoc(doc(db, "usuarios", cred.user.uid), {
+        nombre: nombre,
+        email: email,
+        creado: new Date()
+      });
+
+      window.location.href = "foro.html";
+
+    } catch (error) {
+      alert(error.message);
+    }
+  });
+</script>
 
 </body>
 </html>

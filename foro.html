@@ -77,5 +77,13 @@
     snapshot.forEach(doc => {
       posts.innerHTML += `
         <div class="card">
-          <img src="${doc.data().imagen}" style="width:100%; border-
+          <img src="${doc.data().imagen}" style="width:100%; border-radius:10px">
+          <p>${doc.data().mensaje}</p>
+        </div>
+      `;
+    });
+  });
+</script>
 
+</body>
+</html>

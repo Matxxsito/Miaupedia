@@ -101,7 +101,7 @@ body {
 .card h2 {
   margin-bottom: 10px;
   font-size: 1.4rem;
-  color: #ffcc00;
+  color: #ffffff;
 }
 
 .card p {
@@ -123,7 +123,7 @@ body {
 .content h1 {
   font-size: 2.4rem;
   margin-bottom: 20px;
-  color: #ffcc00;
+  color: #ffffff;
 }
 
 .content p {
@@ -140,7 +140,7 @@ body {
   display: inline-block;
   margin-top: 25px;
   padding: 12px 26px;
-  background: #ffcc00;
+  background: #ffffff;
   color: #222;
   border-radius: 30px;
   text-decoration: none;

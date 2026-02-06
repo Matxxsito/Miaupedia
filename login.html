@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Login | MIAUPEDIA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Estilos -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,16 +13,36 @@
 <div class="content">
   <h1>Iniciar sesión</h1>
 
-  <input type="email" id="email" placeholder="Correo">
-  <input type="password" id="password" placeholder="Contraseña">
+  <input
+    type="email"
+    id="email"
+    placeholder="Correo electrónico"
+    required
+    autocomplete="email"
+  >
 
-  <button id="loginBtn">Entrar</button>
+  <input
+    type="password"
+    id="password"
+    placeholder="Contraseña"
+    required
+    autocomplete="current-password"
+  >
+
+  <button id="loginBtn" type="button">Entrar</button>
+
+  <p style="margin-top: 18px; font-size: 0.95rem;">
+    ¿No tienes cuenta?
+    <a href="register.html" style="font-weight: bold;">
+      Regístrate aquí
+    </a>
+  </p>
 </div>
 
-<!-- Firebase primero -->
+<!-- Firebase (siempre primero) -->
 <script type="module" src="js/firebase.js"></script>
 
-<!-- JS específico -->
+<!-- Lógica de autenticación -->
 <script type="module" src="js/auth.js"></script>
 
 </body>

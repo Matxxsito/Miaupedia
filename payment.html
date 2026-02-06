@@ -1,117 +1,123 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>MIAUPEDIA | Pago</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>MIAUPEDIA | Pago seguro</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: radial-gradient(circle at top, #4e2a1a, #2b140a);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #f5f5f5;
-    }
+<style>
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: radial-gradient(circle at top, #4e2a1a, #2b140a);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
 
-    .card {
-      position: relative;
-      background: rgba(60, 32, 18, 0.92);
-      backdrop-filter: blur(10px);
-      padding: 40px 35px 45px;
-      border-radius: 20px;
-      width: 100%;
-      max-width: 460px;
-      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
-      text-align: center;
-      animation: fadeIn 0.6s ease;
-    }
+/* CARD */
+.card {
+  position: relative;
+  background: rgba(60, 32, 18, 0.95);
+  padding: 30px 26px 32px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 380px;
+  box-shadow: 0 25px 60px rgba(0,0,0,.6);
+  text-align: center;
+  animation: fadeIn .5s ease;
+}
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(15px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+@keyframes fadeIn {
+  from {opacity:0; transform:translateY(10px);}
+  to {opacity:1; transform:translateY(0);}
+}
 
-    /* BOTÓN VOLVER */
-    .back-btn {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      background: rgba(250, 204, 21, 0.15);
-      color: #facc15;
-      padding: 8px 14px;
-      border-radius: 10px;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
+/* BOTÓN VOLVER */
+.back-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  background: rgba(250,204,21,.15);
+  color: #facc15;
+  font-weight: 600;
+}
 
-    .back-btn:hover {
-      background: #facc15;
-      color: #3b1f0f;
-    }
+.back-btn:hover {
+  background: #facc15;
+  color: #3b1f0f;
+}
 
-    h1 {
-      margin-top: 10px;
-      font-size: 22px;
-      color: #fff;
-    }
+h1 {
+  font-size: 18px;
+  margin: 8px 0 4px;
+}
 
-    .price {
-      margin: 10px 0 25px;
-      font-size: 20px;
-      font-weight: bold;
-      color: #facc15;
-    }
+.price {
+  font-size: 18px;
+  font-weight: bold;
+  color: #facc15;
+  margin-bottom: 18px;
+}
 
-    /* PAYPAL */
-    .paypal-box {
-      display: flex;
-      justify-content: center;
-      margin-top: 10px;
-    }
+/* CONTENEDOR PAYPAL (CLAVE) */
+.paypal-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 260px;
+  margin: 0 auto;
+  overflow: hidden;
+}
 
-    .legal {
-      margin-top: 28px;
-      font-size: 12px;
-      opacity: 0.7;
-    }
-  </style>
+/* evita estiramientos raros */
+.paypal-wrapper iframe {
+  max-width: 100% !important;
+}
+
+.legal {
+  margin-top: 18px;
+  font-size: 11px;
+  opacity: .75;
+}
+</style>
 </head>
 
 <body>
 
-  <div class="card">
+<div class="card">
 
-    <a href="index.html" class="back-btn">⬅ Inicio</a>
+  <a href="index.html" class="back-btn">⬅ Inicio</a>
 
-    <h1>Libro de razas de gatos</h1>
-    <div class="price">S/ 11.00 PEN</div>
+  <h1>Libro de razas de gatos</h1>
+  <div class="price">S/ 11.00 PEN</div>
 
-    <!-- PAYPAL -->
-    <script 
-      src="https://www.paypal.com/sdk/js?client-id=BAAA8KHI1xu5jr9F92xqfbSjzGA0tKxlNP665JKCXwJrddG08IuCGVjdDGy7jowcpyBK29Q2XL8FNORLkY&components=hosted-buttons&currency=USD">
-    </script>
+  <!-- PAYPAL SDK -->
+  <script 
+    src="https://www.paypal.com/sdk/js?client-id=BAAA8KHI1xu5jr9F92xqfbSjzGA0tKxlNP665JKCXwJrddG08IuCGVjdDGy7jowcpyBK29Q2XL8FNORLkY&components=hosted-buttons&currency=USD">
+  </script>
 
-    <div class="paypal-box">
-      <div id="paypal-container-FNMSAMPQMEAMN"></div>
-    </div>
-
-    <script>
-      paypal.HostedButtons({
-        hostedButtonId: "FNMSAMPQMEAMN"
-      }).render("#paypal-container-FNMSAMPQMEAMN");
-    </script>
-
-    <div class="legal">
-      Producto digital educativo · Pago seguro con PayPal
-    </div>
-
+  <div class="paypal-wrapper">
+    <div id="paypal-container-FNMSAMPQMEAMN"></div>
   </div>
+
+  <script>
+    paypal.HostedButtons({
+      hostedButtonId: "FNMSAMPQMEAMN"
+    }).render("#paypal-container-FNMSAMPQMEAMN");
+  </script>
+
+  <div class="legal">
+    Pago seguro · Producto digital
+  </div>
+
+</div>
 
 </body>
 </html>

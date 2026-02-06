@@ -11,82 +11,16 @@
   <h1>🐾 Foro Gatuno</h1>
 
   <textarea id="mensaje" placeholder="Comparte algo sobre tu gato"></textarea>
-  <input type="file" id="imagen">
+  <input type="file" id="imagen" accept="image/*">
+
   <button id="publicarBtn">Publicar</button>
 
   <div id="posts"></div>
 </div>
 
-<script type="module">
-  import { auth, db, storage } from "./js/firebase.js";
-  import { onAuthStateChanged } from
-    "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-  import {
-    collection,
-    addDoc,
-    query,
-    orderBy,
-    onSnapshot,
-    serverTimestamp
-  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-  import {
-    ref,
-    uploadBytes,
-    getDownloadURL
-  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
-
-  const mensaje = document.getElementById("mensaje");
-  const imagen = document.getElementById("imagen");
-  const posts = document.getElementById("posts");
-  const publicarBtn = document.getElementById("publicarBtn");
-
-  // 🔐 PROTECCIÓN DE ACCESO (PASO 4.1)
-  onAuthStateChanged(auth, user => {
-    if (!user) {
-      window.location.href = "login.html";
-    }
-  });
-
-  // 📤 PUBLICAR POST
-publicarBtn.addEventListener("click", () => {
-  alert("BOTÓN FUNCIONA");
-});
-
-    if (!mensaje.value || !imagen.files[0]) {
-      alert("Escribe un mensaje y selecciona una imagen");
-      return;
-    }
-
-    const imgRef = ref(storage, "posts/" + Date.now());
-    await uploadBytes(imgRef, imagen.files[0]);
-    const url = await getDownloadURL(imgRef);
-
-    await addDoc(collection(db, "posts"), {
-      uid: auth.currentUser.uid,
-      mensaje: mensaje.value,
-      imagen: url,
-      fecha: serverTimestamp()
-    });
-
-    mensaje.value = "";
-    imagen.value = "";
-  });
-
-  // 📰 MOSTRAR POSTS
-  const q = query(collection(db, "posts"), orderBy("fecha", "desc"));
-
-  onSnapshot(q, snapshot => {
-    posts.innerHTML = "";
-    snapshot.forEach(doc => {
-      posts.innerHTML += `
-        <div class="card">
-          <img src="${doc.data().imagen}" style="width:100%; border-radius:10px">
-          <p>${doc.data().mensaje}</p>
-        </div>
-      `;
-    });
-  });
-</script>
+<!-- SOLO ESTOS DOS SCRIPTS -->
+<script type="module" src="js/firebase.js"></script>
+<script type="module" src="js/foro.js"></script>
 
 </body>
 </html>

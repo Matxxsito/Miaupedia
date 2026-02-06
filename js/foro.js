@@ -14,20 +14,58 @@ import {
   getDownloadURL
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-storage.js";
 
-// ELEMENTOS
-const mensaje = document.getElementById("mensaje");
-const imagen = document.getElementById("imagen");
-const publicarBtn = document.getElementById("publicarBtn");
-const posts = document.getElementById("posts");
+import {
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
 
-// 🔐 PROTEGER EL FORO
-auth.onAuthStateChanged(user => {
-  if (!user) {
-    window.location.href = "login.html";
-  }
+/* 🔐 PROTECCIÓN */
+onAuthStateChanged(auth, user => {
+  if (!user) window.location.href = "login.html";
 });
 
-// ✅ BOTÓN FUNCIONA (PRUEBA REAL)
-publicarBtn.addEventListener("click", async () => {
-  alert("EL BOTÓN FUNCIONA ✅");
+/* 📤 PUBLICAR */
+window.publicar = async function () {
+  const mensaje = document.getElementById("mensaje").value;
+  const imagen = document.getElementById("imagen").files[0];
+
+  if (!mensaje || !imagen) {
+    alert("Completa mensaje e imagen");
+    return;
+  }
+
+  const imgRef = ref(storage, "posts/" + Date.now());
+
+  const snapshot = await uploadBytes(imgRef, imagen);
+  const url = await getDownloadURL(snapshot.ref);
+
+  await addDoc(collection(db, "posts"), {
+    uid: auth.currentUser.uid,
+    mensaje,
+    imagen: url,
+    fecha: serverTimestamp()
+  });
+
+  document.getElementById("mensaje").value = "";
+  document.getElementById("imagen").value = "";
+};
+
+/* 📥 MOSTRAR POSTS */
+const q = query(
+  collection(db, "posts"),
+  orderBy("fecha", "desc")
+);
+
+onSnapshot(q, snapshot => {
+  const posts = document.getElementById("posts");
+  posts.innerHTML = "";
+
+  snapshot.forEach(doc => {
+    const d = doc.data();
+    posts.innerHTML += `
+      <div class="card">
+        <img src="${d.imagen}" style="width:100%; border-radius:12px;">
+        <p>${d.mensaje}</p>
+      </div>
+    `;
+  });
 });

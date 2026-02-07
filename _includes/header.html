@@ -2,30 +2,29 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-
   <title>MIAUPEDIA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- =============================
-       FAVICON
-  ============================== -->
+  <!-- ============================= -->
+  <!-- FAVICON -->
+  <!-- ============================= -->
   <link rel="icon" href="favicon/favicon.ico">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
   <link rel="apple-touch-icon" href="favicon/apple-touch-icon.png">
   <link rel="manifest" href="favicon/site.webmanifest">
 
-  <!-- =============================
-       SEO BÁSICO
-  ============================== -->
+  <!-- ============================= -->
+  <!-- META SEO BÁSICO -->
+  <!-- ============================= -->
   <meta name="title" content="MIAUPEDIA | Blog informativo sobre gatos">
   <meta name="description" content="MIAUPEDIA es un blog informativo dedicado a los gatos. Consejos, alimentación, cuidados y bienestar felino.">
   <meta name="keywords" content="gatos, blog de gatos, cuidados de gatos, alimentación felina, razas de gatos, bienestar felino, michis">
   <meta name="author" content="MIAUPEDIA">
 
-  <!-- =============================
-       OPEN GRAPH
-  ============================== -->
+  <!-- ============================= -->
+  <!-- OPEN GRAPH (REDES SOCIALES) -->
+  <!-- ============================= -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="MIAUPEDIA | Blog informativo sobre gatos">
   <meta property="og:description" content="Consejos, alimentación y cuidados esenciales para gatos.">
@@ -35,53 +34,60 @@
   <meta property="og:locale" content="es_ES">
   <meta property="og:site_name" content="MIAUPEDIA">
 
-  <!-- =============================
-       ESTILOS
-  ============================== -->
+  <!-- ============================= -->
+  <!-- ESTILOS -->
+  <!-- ============================= -->
   <link rel="stylesheet" href="{{ site.baseurl }}/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <!-- =============================
-       GOOGLE ANALYTICS
-  ============================== -->
+  <!-- ============================= -->
+  <!-- GOOGLE ANALYTICS -->
+  <!-- ============================= -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-G5VL0HNE3T"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
     gtag('config', 'G-G5VL0HNE3T');
   </script>
 
-  <!-- =============================
-       GOOGLE TAG MANAGER
-  ============================== -->
+  <!-- ============================= -->
+  <!-- GOOGLE TAG MANAGER -->
+  <!-- ============================= -->
   <script>
-    (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),
-          dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-KKV5ZKBZ');
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || [];
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
+      var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-KKV5ZKBZ');
   </script>
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-KKV5ZKBZ"
+      height="0"
+      width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
 
-<!-- Google Tag Manager (noscript) -->
-<noscript>
-  <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KKV5ZKBZ"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe>
-</noscript>
+  <header class="header">
+    <h1>MIAUPEDIA</h1>
+    <p>Entender, cuidar y disfrutar la vida con gatos</p>
+  </header>
 
-<header class="header">
-  <h1 class="site-title">
-    <a href="{{ site.baseurl }}/index.html" aria-label="Ir al inicio">
-      🐱 <span>MIAUPEDIA</span>
-    </a>
-  </h1>
-  <p>Entender, cuidar y disfrutar la vida con gatos</p>
-</header>
+</body>
+</html>

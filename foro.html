@@ -1,10 +1,145 @@
+---
+---
+{% include header.html %}
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Foro | MIAUPEDIA</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Foro Gatuno</title>
+
+  <style>
+    /* ===== RESET BÁSICO ===== */
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(
+        135deg,
+        #a85b2a,
+        #f07a3a,
+        #e26b2c
+      );
+      font-family: Arial, Helvetica, sans-serif;
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 15px;
+    }
+
+    /* ===== CONTENEDOR PRINCIPAL ===== */
+    .content {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(10px);
+      border-radius: 18px;
+      padding: 25px;
+      width: 100%;
+      max-width: 700px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ===== TÍTULO ===== */
+    .content h1 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 2rem;
+      letter-spacing: 1px;
+    }
+
+    /* ===== TEXTAREA ===== */
+    textarea {
+      width: 100%;
+      min-height: 110px;
+      resize: none;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+      margin-bottom: 15px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+    }
+
+    textarea::placeholder {
+      color: #777;
+    }
+
+    /* ===== INPUT FILE ===== */
+    input[type="file"] {
+      width: 100%;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+
+    input[type="file"]::-webkit-file-upload-button {
+      background: #ffffff;
+      color: #e26b2c;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* ===== BOTÓN ===== */
+    button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 14px;
+      border: none;
+      background: #ffffff;
+      color: #e26b2c;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ===== POSTS ===== */
+    #posts {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .post {
+      background: rgba(255, 255, 255, 0.95);
+      color: #333;
+      border-radius: 14px;
+      padding: 15px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .post img {
+      width: 100%;
+      margin-top: 10px;
+      border-radius: 12px;
+    }
+
+    .post .autor {
+      font-weight: bold;
+      margin-bottom: 6px;
+      color: #e26b2c;
+    }
+
+    .post .fecha {
+      font-size: 0.8rem;
+      color: #777;
+      margin-top: 6px;
+    }
+  </style>
 </head>
+
 <body>
 
 <div class="content">
@@ -25,3 +160,4 @@
 
 </body>
 </html>
+{% include footer.html %}

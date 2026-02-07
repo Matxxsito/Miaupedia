@@ -31,7 +31,7 @@ if (registerBtn) {
       window.location.href = "login.html";
 
     } catch (error) {
-      alert("Ya se te registró");
+     alert(error.message);
     }
   });
 }

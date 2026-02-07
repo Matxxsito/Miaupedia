@@ -173,6 +173,8 @@ body {
    FOOTER
 ========================= */
 .site-footer {
+  width: 100%;
+  align-self: stretch;
   background: linear-gradient(
     135deg,
     #4e2a1a,
@@ -182,6 +184,7 @@ body {
   color: #ffffff;
   margin-top: 60px;
 }
+
 
 /* CONTENEDOR FOOTER */
 .footer-container {

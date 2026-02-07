@@ -3,27 +3,96 @@
 {% include header.html %}
 
 <section class="content">
-  <h1>Alimentación</h1>
+  <h1>Michiposting</h1>
 
   <p>
-    La alimentación es uno de los pilares más importantes para que tu gato tenga
-    una vida larga, saludable y feliz. Una dieta adecuada influye directamente
-    en su energía, pelaje, sistema inmunológico y bienestar general.
+   El rincón perfecto donde los gatos toman el control de Internet con sus ocurrencias más locas, tiernas y épicas. Aquí no solo compartimos memes, sino momentos gatunos que alegran el día y despiertan risas irresistibles. ¡Prepárate para un festín visual de maullidos cómicos y aventuras peluditas que solo los verdaderos amantes de los michis pueden entender!
   </p>
-
-  <p>
-    En esta sección de MIAUPEDIA encontrarás información sobre alimentación balanceada,
-    tipos de comida (seca, húmeda y natural), porciones según la edad,
-    necesidades especiales y errores comunes que debes evitar.
-  </p>
-
-  <p>
-    Cada gato es diferente: no es lo mismo alimentar a un cachorro, un adulto
-    o un gato senior. Aquí aprenderás a elegir la mejor opción según su etapa
-    de vida y estilo de vida.
-  </p>
-
+mememem
   <a href="index.html" class="btn">⬅ Volver al inicio</a>
 </section>
 
-{% include footer.html %}
+<!-- Nueva sección para memes -->
+<section class="memes-section">
+  <h2>Memes de Gatos</h2>
+  <div class="memes-grid">
+    <div class="meme-card">
+      <img src="img/memes/meme1.jpg" alt="Meme gracioso 1">
+      <h3>Momichi #1</h3>
+    </div>
+    <div class="meme-card">
+      <img src="img/memes/meme2.jpg" alt="Meme divertido 2">
+      <h3>Momichi #2</h3>
+    </div>
+    <div class="meme-card">
+      <img src="img/memes/meme3.jpg" alt="Meme loco 3">
+      <h3>Momichi #3</h3>
+    </div>
+    <div class="meme-card">
+      <img src="img/memes/meme4.jpg" alt="Meme adorable 4">
+      <h3>Momichi #4</h3>
+    </div>
+    <!-- Agrega más memes según necesites -->
+  </div>
+</section>
+
+
+
+<style>
+  /* Estilo para la sección memes */
+  .memes-section {
+    padding: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .memes-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .memes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .meme-card {
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+    padding: 10px;
+    text-align: center;
+  }
+
+  .meme-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  .meme-card h3 {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  /* Botón */
+  .btn {
+    display: inline-block;
+    padding: 10px 16px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+  }
+
+  {% include footer.html %}
+
+  .btn:hover {
+    background-color: #45a049;
+  }
+</style>

@@ -183,6 +183,7 @@ body {
   );
   color: #ffffff;
   margin-top: 60px;
+   
 }
 
 
@@ -238,6 +239,12 @@ body {
 }
 
 /* CONTACTO */
+
+.footer-contact {
+  position: relative;
+}
+
+
 .footer-contact h3 {
   margin-bottom: 10px;
 }

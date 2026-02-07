@@ -1,0 +1,101 @@
+---
+---
+{% include header.html %}
+
+<section class="content welcome-section">
+  <div class="profile-image">
+    <img src="img/comunidad.png" alt="Caterine y sus caterivininozas aventuras" />
+  </div>
+  <h1>Caterine y sus caterivininozas aventuras</h1>
+  <h2>Canal</h2>
+  <p>Fans de José José cuando ven que les está pasando lo mismo que a su ídolo: <strong>Ay cabrón</strong> 👤</p>
+
+  <a href="https://www.whatsapp.com/channel/0029Vb5R7uAGZNCrvfrkse2M" target="_blank" class="btn-whatsapp">Ver canal</a>
+</section>
+
+<style>
+  .welcome-section {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px 30px;
+    background-color: #FFCC99; /* Naranja suave */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    text-align: center;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 20px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  .profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .welcome-section h1 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: #5a4d41;
+    font-weight: 700;
+  }
+
+  .welcome-section h2 {
+    font-size: 1rem;
+    color: #7b5e57;
+    margin-bottom: 15px;
+    font-weight: 500;
+  }
+
+  .welcome-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+
+  .welcome-section strong {
+    color: #7b5e57;
+  }
+
+  .btn-whatsapp {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #25D366;
+    color: white;
+    font-weight: 600;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-whatsapp:hover {
+    background-color: #1ebe5b;
+  }
+
+  /* Responsive para móviles */
+  @media (max-width: 480px) {
+    .welcome-section {
+      max-width: 90%;
+      padding: 15px 20px;
+      margin: 20px auto;
+    }
+
+    .welcome-section h1 {
+      font-size: 1.5rem;
+    }
+
+    .welcome-section p {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+{% include footer.html %}

@@ -6,59 +6,110 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
   /* HEADER */
-.header {
-  text-align: center;
-  padding: 40px 20px 28px;
-  background: linear-gradient(
-    135deg,
-    #a84723,
-    #d66238,
-    #bd5e1e
-  );
-  color: #ffffff;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-}
+  .header {
+    text-align: center;
+    padding: 40px 20px 28px;
+    background: linear-gradient(
+      135deg,
+      #a84723,
+      #d66238,
+      #bd5e1e
+    );
+    color: #ffffff;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+    position: relative;
+  }
 
-/* TÍTULO */
-.site-title {
-  margin: 0;
-  font-size: 2.6rem;
-  font-weight: 800;
-  letter-spacing: 1px;
-}
+  /* TÍTULO */
+  .site-title {
+    margin: 0;
+    font-size: 2.6rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+  }
 
-/* LINK DEL TÍTULO */
-.site-title a {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  text-decoration: none;
-  color: #ffffff;
-  transition: transform 0.25s ease, text-shadow 0.25s ease, opacity 0.25s ease;
-}
+  /* LINK DEL TÍTULO */
+  .site-title a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: #ffffff;
+    transition: transform 0.25s ease, text-shadow 0.25s ease, opacity 0.25s ease;
+  }
 
-/* TEXTO MIAUPEDIA */
-.site-title span {
-  background: linear-gradient(90deg, #fff7ed, #ffe1c2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+  /* TEXTO MIAUPEDIA */
+  .site-title span {
+    background: linear-gradient(90deg, #fff7ed, #ffe1c2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 
-/* HOVER ELEGANTE */
-.site-title a:hover {
-  transform: translateY(-2px) scale(1.03);
-  text-shadow: 0 10px 25px rgba(0,0,0,0.35);
-  opacity: 0.95;
-}
+  /* HOVER ELEGANTE */
+  .site-title a:hover {
+    transform: translateY(-2px) scale(1.03);
+    text-shadow: 0 10px 25px rgba(0,0,0,0.35);
+    opacity: 0.95;
+  }
 
-/* SUBTÍTULO */
-.header p {
-  margin-top: 10px;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #ffe8d1;
-}
-  </style>
+  /* SUBTÍTULO */
+  .header p {
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffe8d1;
+  }
+
+  /* NAV CON LOS ENLACES */
+  nav.menu {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  nav.menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+  }
+
+  nav.menu a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+
+  /* BURBUJA WHATSAPP FIJA */
+  .whatsapp-bubble {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25D366;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+  }
+
+  .whatsapp-bubble:hover {
+    background-color: #1ebe57;
+  }
+
+  .whatsapp-bubble img {
+    width: 32px;
+    height: 32px;
+  }
+
+</style>
   <!-- ============================= -->
   <!-- FAVICON -->
   <!-- ============================= -->
@@ -140,12 +191,22 @@
 
   <header class="header">
     <h1 class="site-title">
-    <a href="{{ site.baseurl }}/index.html" aria-label="Ir al inicio">
-      🐱 <span>MIAUPEDIA</span>
-    </a>
-  </h1>
+      <a href="{{ site.baseurl }}/index.html" aria-label="Ir al inicio">
+        🐱 <span>MIAUPEDIA</span>
+      </a>
+    </h1>
     <p>Entender, cuidar y disfrutar la vida con gatos</p>
+    <nav class="menu" aria-label="Menú principal">
+      <a href="{{ site.baseurl }}/index.html">Inicio</a>
+      <a href="{{ site.baseurl }}/login.html">Iniciar sesión</a>
+      <a href="{{ site.baseurl }}/register.html">Registro</a>
+    </nav>
   </header>
+
+  <!-- Burbuja WhatsApp -->
+  <a href="https://wa.me/51922688986" target="_blank" rel="noopener" class="whatsapp-bubble" aria-label="Enviar mensaje por WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="Icono WhatsApp" />
+  </a>
 
 </body>
 </html>

@@ -1,5 +1,4 @@
-<footer class="site-footer">
-  <style>
+<style>
   .site-footer {
     width: 100%;
     background: #2b140a;
@@ -27,34 +26,61 @@
 
   .footer-social {
     display: flex;
-    gap: 14px;
-    margin-top: 16px;
+    gap: 16px;
+    margin-top: 18px;
   }
 
   .social-btn {
-    width: 48px;
-    height: 48px;
-    border-radius: 14px;
-    background: rgba(255, 204, 128, 0.18);
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.12);
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     text-decoration: none;
-    line-height: 0;          /* CLAVE */
+    line-height: 0;
+
+    transition:
+      transform 0.25s ease,
+      box-shadow 0.25s ease,
+      background 0.25s ease;
   }
 
   .social-btn img {
-    width: 24px;
-    height: 24px;
-    display: block;          /* CLAVE */
+    width: 26px;
+    height: 26px;
+    display: block;
     object-fit: contain;
+
+    /* iconos blancos tipo SVG */
+    filter: brightness(0) invert(1);
   }
 
   .social-btn:hover {
-    background: rgba(255, 204, 128, 0.35);
-    transform: translateY(-2px);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+  }
+
+  /* Colores oficiales por red */
+  .social-btn.tiktok:hover {
+    background: #000000;
+  }
+
+  .social-btn.instagram:hover {
+    background: linear-gradient(
+      135deg,
+      #f58529,
+      #dd2a7b,
+      #8134af,
+      #515bd4
+    );
+  }
+
+  .social-btn.facebook:hover {
+    background: #1877f2;
   }
 
   /* ================= CONTACTO ================= */
@@ -88,6 +114,7 @@
 </style>
 
 
+
   <div class="footer-container">
 
     <div class="footer-about">
@@ -97,19 +124,20 @@
         Nuestra intención es mejorar la relación con estos maravillosos animales.
       </p>
 
-  <div class="footer-social">
-  <a href="https://www.tiktok.com/@matxxsito?_r=1&_t=ZS-93hM60tjI5C" class="social-btn" target="_blank">
+<div class="footer-social">
+  <a href="https://www.tiktok.com/@matxxsito?_r=1&_t=ZS-93hM60tjI5C" class="social-btn tiktok" target="_blank">
     <img src="img/tiktok.png" alt="TikTok">
   </a>
 
-  <a href="https://www.instagram.com/is.matt25?igsh=dDBtaHFmbTloZXJz" class="social-btn" target="_blank">
+  <a href="https://www.instagram.com/is.matt25?igsh=dDBtaHFmbTloZXJz" class="social-btn instagram" target="_blank">
     <img src="img/instagram.png" alt="Instagram">
   </a>
 
-  <a href="https://www.facebook.com/share/1BvBF1y6Dg/" class="social-btn" target="_blank">
+  <a href="https://www.facebook.com/share/1BvBF1y6Dg/" class="social-btn facebook" target="_blank">
     <img src="img/facebook.png" alt="Facebook">
   </a>
 </div>
+
 <br>
 <br>
 

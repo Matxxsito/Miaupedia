@@ -28,7 +28,7 @@ if (registerBtn) {
         creado: new Date()
       });
 
-      window.location.href = "foro.html";
+      window.location.href = "login.html";
 
     } catch (error) {
       alert(error.message);

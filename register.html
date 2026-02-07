@@ -9,31 +9,27 @@
   <title>Registro | MIAUPEDIA</title>
 
   <style>
-    /* RESET */
     * {
       box-sizing: border-box;
       font-family: 'Segoe UI', Arial, sans-serif;
     }
 
-    /* BODY COMO COLUMNA */
     body {
       margin: 0;
       min-height: 100vh;
       background: radial-gradient(circle at top, #ffb26b, #a84723);
       display: flex;
-      flex-direction: column; /* CLAVE */
+      flex-direction: column;
     }
 
-    /* CONTENEDOR QUE CENTRA EL FORM */
     .page-content {
-      flex: 1; /* empuja el footer hacia abajo */
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 40px 20px;
     }
 
-    /* CARD DEL FORMULARIO */
     .content {
       width: 100%;
       max-width: 400px;
@@ -52,7 +48,6 @@
       font-weight: 800;
     }
 
-    /* INPUTS */
     .content input {
       width: 100%;
       padding: 15px 16px;
@@ -62,10 +57,8 @@
       outline: none;
       font-size: 1rem;
       background: rgba(255,255,255,0.95);
-      box-shadow: inset 0 3px 8px rgba(0,0,0,0.15);
     }
 
-    /* BOTÓN REGISTRAR */
     #registerBtn {
       width: 100%;
       margin-top: 12px;
@@ -82,29 +75,14 @@
         rgba(171,74,39,1) 30%,
         rgba(176,66,26,1) 100%
       );
-      box-shadow: 0 14px 30px rgba(0,0,0,0.35);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    #registerBtn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 22px 40px rgba(0,0,0,0.45);
-    }
-
-    /* LINK A LOGIN */
     .content a {
       display: inline-block;
       margin-top: 22px;
       color: #ffe1c2;
       font-weight: 600;
       text-decoration: none;
-      font-size: 0.95rem;
-      transition: color 0.2s ease;
-    }
-
-    .content a:hover {
-      color: #ffffff;
-      text-decoration: underline;
     }
   </style>
 </head>
@@ -119,42 +97,15 @@
     <input type="email" id="email" placeholder="Correo">
     <input type="password" id="password" placeholder="Contraseña">
 
-    <button id="registerBtn" onclick="registrar()">Registrarse</button>
+    <button id="registerBtn">Registrarse</button>
 
     <a href="login.html">¿Ya tienes cuenta?</a>
   </div>
 </main>
 
-<!-- Firebase -->
-<script type="module">
-  import { auth, db } from "./js/firebase.js";
-  import { createUserWithEmailAndPassword } from
-    "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-  import { doc, setDoc } from
-    "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-  window.registrar = async function () {
-    const nombre = document.getElementById("nombre").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
-
-    if (!nombre || !email || !password) {
-      alert("Completa todos los campos (• ε •)");
-      return;
-    }
-
-    const cred = await createUserWithEmailAndPassword(auth, email, password);
-
-    await setDoc(doc(db, "usuarios", cred.user.uid), {
-      nombre: nombre,
-      email: email
-    });
-
-    window.location.href = "login.html";
-  };
-</script>
+<!-- JS -->
+<script type="module" src="./js/register.js"></script>
 
 {% include footer.html %}
-
 </body>
 </html>

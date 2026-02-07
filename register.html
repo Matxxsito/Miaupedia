@@ -124,9 +124,9 @@
 <br>
   <h4>Al registrarte, haz clic en Iniciar Sesión y accede con tus datos.</h4>
       <br>
-     <button id="registerBtn" href="login.html">Iniciar Sesión</button>
-      <a href="ayuda-register.html">¿Necesitas ayuda al registrarte?</a>
-      <br>
+<button id="registerBtn">Iniciar Sesión</button>
+<a href="ayuda-register.html">¿Necesitas ayuda al registrarte?</a>
+
      
     </div>
 
@@ -157,6 +157,10 @@
 
       window.location.href = "login.html";
     };
+
+     document.getElementById('registerBtn').addEventListener('click', function() {
+    window.location.href = 'login.html';
+    
   </script>
 
   {% include footer.html %}

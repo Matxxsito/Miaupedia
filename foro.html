@@ -8,13 +8,24 @@
   <title>Foro Gatuno</title>
 
   <style>
-    /* ===== RESET BÁSICO ===== */
+    /* =========================
+       RESET
+    ========================= */
     * {
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    /* =========================
+       BODY
+    ========================= */
     body {
-      margin: 0;
       min-height: 100vh;
       background: linear-gradient(
         135deg,
@@ -24,13 +35,28 @@
       );
       font-family: Arial, Helvetica, sans-serif;
       color: #ffffff;
+
+      /* espacio para el header fijo */
+      padding-top: 120px;
+
+      /* layout vertical correcto */
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* =========================
+       WRAPPER DEL FORO
+    ========================= */
+    .foro-wrapper {
+      flex: 1;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
       padding: 40px 15px;
     }
 
-    /* ===== CONTENEDOR PRINCIPAL ===== */
+    /* =========================
+       CONTENEDOR PRINCIPAL
+    ========================= */
     .content {
       background: rgba(255, 255, 255, 0.12);
       backdrop-filter: blur(10px);
@@ -41,7 +67,9 @@
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
     }
 
-    /* ===== TÍTULO ===== */
+    /* =========================
+       TÍTULO
+    ========================= */
     .content h1 {
       text-align: center;
       margin-bottom: 25px;
@@ -49,7 +77,9 @@
       letter-spacing: 1px;
     }
 
-    /* ===== TEXTAREA ===== */
+    /* =========================
+       TEXTAREA
+    ========================= */
     textarea {
       width: 100%;
       min-height: 110px;
@@ -68,7 +98,9 @@
       color: #777;
     }
 
-    /* ===== INPUT FILE ===== */
+    /* =========================
+       INPUT FILE
+    ========================= */
     input[type="file"] {
       width: 100%;
       margin-bottom: 15px;
@@ -85,7 +117,9 @@
       font-weight: bold;
     }
 
-    /* ===== BOTÓN ===== */
+    /* =========================
+       BOTÓN
+    ========================= */
     button {
       width: 100%;
       padding: 12px;
@@ -104,7 +138,9 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
     }
 
-    /* ===== POSTS ===== */
+    /* =========================
+       POSTS
+    ========================= */
     #posts {
       margin-top: 30px;
       display: flex;
@@ -137,20 +173,34 @@
       color: #777;
       margin-top: 6px;
     }
+
+    /* =========================
+       FOOTER FIX
+    ========================= */
+    .site-footer {
+      width: 100%;
+      align-self: stretch;
+    }
   </style>
 </head>
 
 <body>
 
-<div class="content">
-  <h1>🐾 Foro Gatuno</h1>
+<!-- CONTENIDO DEL FORO -->
+<main class="foro-wrapper">
+  <div class="content">
+    <h1>🐾 Foro Gatuno</h1>
 
-  <textarea id="mensaje" placeholder="Comparte algo sobre tu gato"></textarea>
-  <input type="file" id="imagen" accept="image/*">
-  <button onclick="publicar()">Publicar</button>
+    <textarea id="mensaje" placeholder="Comparte algo sobre tu gato"></textarea>
+    <input type="file" id="imagen" accept="image/*">
+    <button onclick="publicar()">Publicar</button>
 
-  <div id="posts"></div>
-</div>
+    <div id="posts"></div>
+  </div>
+</main>
+
+<!-- FOOTER (DENTRO DEL BODY) -->
+{% include footer.html %}
 
 <!-- 🔥 Firebase -->
 <script type="module" src="js/firebase.js?v=1.0"></script>
@@ -160,4 +210,3 @@
 
 </body>
 </html>
-{% include footer.html %}

@@ -21,12 +21,12 @@
       min-height: 100vh;
       background: radial-gradient(circle at top, #ffb26b, #a84723);
       display: flex;
-      flex-direction: column; /* CLAVE */
+      flex-direction: column;
     }
 
     /* CONTENEDOR QUE CENTRA EL FORM */
     .page-content {
-      flex: 1; /* empuja el footer hacia abajo */
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -41,7 +41,7 @@
       backdrop-filter: blur(14px);
       border-radius: 26px;
       padding: 38px 30px 42px;
-      box-shadow: 0 25px 55px rgba(0,0,0,0.35);
+      box-shadow: 0 25px 55px rgba(0, 0, 0, 0.35);
       text-align: center;
     }
 
@@ -61,8 +61,8 @@
       border: none;
       outline: none;
       font-size: 1rem;
-      background: rgba(255,255,255,0.95);
-      box-shadow: inset 0 3px 8px rgba(0,0,0,0.15);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: inset 0 3px 8px rgba(0, 0, 0, 0.15);
     }
 
     /* BOTÓN REGISTRAR */
@@ -78,17 +78,17 @@
       color: #ffffff;
       background: linear-gradient(
         90deg,
-        rgba(168,71,35,1) 0%,
-        rgba(171,74,39,1) 30%,
-        rgba(176,66,26,1) 100%
+        rgba(168, 71, 35, 1) 0%,
+        rgba(171, 74, 39, 1) 30%,
+        rgba(176, 66, 26, 1) 100%
       );
-      box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     #registerBtn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 22px 40px rgba(0,0,0,0.45);
+      box-shadow: 0 22px 40px rgba(0, 0, 0, 0.45);
     }
 
     /* LINK A LOGIN */
@@ -110,80 +110,47 @@
 </head>
 
 <body>
+  <main class="page-content">
+    <div class="content">
+      <h1>Crear cuenta</h1>
 
-<main class="page-content">
-  <div class="content">
-    <h1>Crear cuenta</h1>
+      <input type="text" id="nombre" placeholder="Nombre">
+      <input type="email" id="email" placeholder="Correo">
+      <input type="password" id="password" placeholder="Contraseña">
 
-    <input type="text" id="nombre" placeholder="Nombre">
-    <input type="email" id="email" placeholder="Correo">
-    <input type="password" id="password" placeholder="Contraseña">
+      <button id="registerBtn" onclick="registrar()">Registrarse</button>
 
-    <<button id="registerBtn">Registrarse</button>
+      <a href="login.html">¿Ya tienes cuenta?</a>
+    </div>
+  </main>
 
-<p id="msgRegistro" style="
-  display:none;
-  margin-top:14px;
-  color:#eaffea;
-  font-weight:600;
-">
-  ✅ Usuario registrado correctamente. Redirigiendo...
-</p>
+  <!-- Firebase -->
+  <script type="module">
+    import { auth, db } from "./js/firebase.js";
+    import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+    import { doc, setDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
+    window.registrar = async function () {
+      const nombre = document.getElementById("nombre").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
 
-    <a href="login.html">¿Ya tienes cuenta?</a>
-  </div>
-</main>
+      if (!nombre || !email || !password) {
+        alert("Completa todos los campos (• ε •)");
+        return;
+      }
 
-<!-- Firebase -->
-<script type="module">
-  import { auth, db } from "./js/firebase.js";
-  import { createUserWithEmailAndPassword } from
-    "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-  import { doc, setDoc } from
-    "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
-
-  const nombre = document.getElementById("nombre");
-  const email = document.getElementById("email");
-  const password = document.getElementById("password");
-  const registerBtn = document.getElementById("registerBtn");
-  const msgRegistro = document.getElementById("msgRegistro");
-
-  registerBtn.addEventListener("click", async () => {
-    if (!nombre.value || !email.value || !password.value) {
-      alert("Completa todos los campos (• ε •)");
-      return;
-    }
-
-    try {
-      const cred = await createUserWithEmailAndPassword(
-        auth,
-        email.value,
-        password.value
-      );
+      const cred = await createUserWithEmailAndPassword(auth, email, password);
 
       await setDoc(doc(db, "usuarios", cred.user.uid), {
-        nombre: nombre.value,
-        email: email.value,
-        creado: new Date()
+        nombre: nombre,
+        email: email
       });
 
-      // ✅ mostrar mensaje
-      msgRegistro.style.display = "block";
+      window.location.href = "login.html";
+    };
+  </script>
 
-      // ⏳ redirigir
-      setTimeout(() => {
-        window.location.href = "login.html";
-      }, 1800);
-
-    } catch (error) {
-      alert(error.message);
-    }
-  });
-</script>
-
-
-{% include footer.html %}
-
+  {% include footer.html %}
 </body>
 </html>

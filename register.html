@@ -119,7 +119,17 @@
     <input type="email" id="email" placeholder="Correo">
     <input type="password" id="password" placeholder="Contraseña">
 
-    <button id="registerBtn" onclick="registrar()">Registrarse</button>
+    <<button id="registerBtn">Registrarse</button>
+
+<p id="msgRegistro" style="
+  display:none;
+  margin-top:14px;
+  color:#eaffea;
+  font-weight:600;
+">
+  ✅ Usuario registrado correctamente. Redirigiendo...
+</p>
+
 
     <a href="login.html">¿Ya tienes cuenta?</a>
   </div>
@@ -133,26 +143,45 @@
   import { doc, setDoc } from
     "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-  window.registrar = async function () {
-    const nombre = document.getElementById("nombre").value;
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
+  const nombre = document.getElementById("nombre");
+  const email = document.getElementById("email");
+  const password = document.getElementById("password");
+  const registerBtn = document.getElementById("registerBtn");
+  const msgRegistro = document.getElementById("msgRegistro");
 
-    if (!nombre || !email || !password) {
+  registerBtn.addEventListener("click", async () => {
+    if (!nombre.value || !email.value || !password.value) {
       alert("Completa todos los campos (• ε •)");
       return;
     }
 
-    const cred = await createUserWithEmailAndPassword(auth, email, password);
+    try {
+      const cred = await createUserWithEmailAndPassword(
+        auth,
+        email.value,
+        password.value
+      );
 
-    await setDoc(doc(db, "usuarios", cred.user.uid), {
-      nombre: nombre,
-      email: email
-    });
+      await setDoc(doc(db, "usuarios", cred.user.uid), {
+        nombre: nombre.value,
+        email: email.value,
+        creado: new Date()
+      });
 
-    window.location.href = "login.html";
-  };
+      // ✅ mostrar mensaje
+      msgRegistro.style.display = "block";
+
+      // ⏳ redirigir
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 1800);
+
+    } catch (error) {
+      alert(error.message);
+    }
+  });
 </script>
+
 
 {% include footer.html %}
 

@@ -68,24 +68,29 @@
 }
 
 /* BOTÓN */
+.footer-social {
+  display: flex;
+  gap: 14px;
+  margin-top: 16px;
+}
+
 .social-btn {
   width: 48px;
   height: 48px;
   border-radius: 14px;
   background: rgba(255, 204, 128, 0.18);
 
-  display: flex;
+  display: inline-flex;        /* CLAVE */
   align-items: center;
   justify-content: center;
 
-  vertical-align: middle;
+  text-decoration: none;
 }
 
 .social-btn img {
   width: 24px;
   height: 24px;
   object-fit: contain;
-  display: block;   /* CLAVE */
 }
 
 
@@ -115,12 +120,14 @@
     <img src="img/facebook.png" alt="Facebook">
   </a>
 </div>
+<br>
+<br>
 
-<br>
-<br>
     <div class="footer-contact">
+<br>
+<br>
       <h3>Contacto</h3>
-
+<br>
       <a href="https://mail.google.com/mail/?view=cm&fs=1
       &to=mateopolo20@gmail.com
       &su=Contacto%20desde%20MIAUPEDIA
@@ -128,7 +135,9 @@
         📬 Enviar mensaje por Gmail
       </a>
 
-      <br><br>
+      <br>
+      <br>
+
 
       <a href="payment.html" class="btn-back">⬅ Visitar la tienda</a>
     </div>

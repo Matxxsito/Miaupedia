@@ -3,6 +3,29 @@
 {% include header.html %}
 <body>
 <style>
+      
+.btn-register {
+  display: block;
+  margin-top: 25px;
+  padding: 12px;
+  text-align: center;
+  background: #fa6e11;
+background: linear-gradient(90deg,rgba(250, 110, 17, 1) 0%, rgba(237, 75, 17, 1) 50%, rgba(156, 91, 48, 1) 100%);
+  color: #ffffff;
+  font-weight: 700;
+  font-weight: 700;
+  border-radius: 14px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-register:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+      
       .btn-back {
       position: absolute;
       top: 14px;
@@ -35,8 +58,11 @@
   <button id="loginBtn">Entrar</button>
 </div>
 <br>
-<div class="content">
-  <h2 href="register-html">¿No tienes una cuenta? La kgada contigo, create una aquí p</h2></div>
+<a href="register.html" class="btn-register">
+  🐱 ¿No tienes una cuenta?
+</a>
+
+
 <script type="module">
   import { auth } from "./js/firebase.js";
   import { signInWithEmailAndPassword } from

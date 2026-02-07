@@ -1,89 +1,95 @@
 <footer class="site-footer">
+  <style>
+    .site-footer {
+      width: 100%;
+      background: #2b140a;
+      color: #ffffff;
+      padding-top: 40px;
+      margin-top: auto; /* CLAVE */
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+    }
+
+    .footer-logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .footer-social a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: #ffcc80;
+      font-weight: bold;
+    }
+
+    .footer-contact a {
+      color: #ffd699;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-contact .btn-back {
+      display: inline-block;
+      margin-top: 18px;
+      padding: 10px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      background: linear-gradient(135deg, #facc15, #f59e0b);
+      color: #3b1f0f;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding: 18px;
+      margin-top: 30px;
+      background: #1e0f08;
+      font-size: 0.85rem;
+    }
+  </style>
+
   <div class="footer-container">
 
-    <!-- SOBRE MIAUPEDIA -->
     <div class="footer-about">
-      <div class="footer-logo">
-        🐱 <span>MIAUPEDIA</span>
-      </div>
-
+      <div class="footer-logo">🐱 MIAUPEDIA</div>
       <p>
         Miaupedia es una página creada para los gatos y sus amigos humanos.
-        Nuestra intención es mejorar la relación con estos maravillosos animales
-        que día a día nos acompañan.
+        Nuestra intención es mejorar la relación con estos maravillosos animales.
       </p>
 
       <div class="footer-social">
-        <a href="https://www.facebook.com/share/1BvBF1y6Dg/" aria-label="Tiktok">T</a>
-        <a href="https://www.instagram.com/is.matt25?igsh=dDBtaHFmbTloZXJz" aria-label="Instagram">I</a>
-        <a href="https://www.facebook.com/share/1BvBF1y6Dg/" aria-label="Facebook">F</a>
+        <a href="#">T</a>
+        <a href="#">I</a>
+        <a href="#">F</a>
       </div>
     </div>
 
-    <!-- CONTACTO -->
     <div class="footer-contact">
       <h3>Contacto</h3>
+
       <a href="https://mail.google.com/mail/?view=cm&fs=1
       &to=mateopolo20@gmail.com
       &su=Contacto%20desde%20MIAUPEDIA
-      &body=Hola%20Mateo,%0A%0AQuiero%20escribirte.">
+      &body=Hola%20Mateo,%0A%0AQuiero%20contactarte.">
         📬 Enviar mensaje por Gmail
       </a>
 
-      <br>
-      <br>
-<style>
-     .btn-back {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  padding: 8px 14px;
-  font-size: 12px;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: 600;
-  background: linear-gradient(135deg, #facc15, #f59e0b);
-  color: #3b1f0f;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.35);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+      <br><br>
 
-.btn-back:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.45);
-}
-
-</style>
-      
       <a href="payment.html" class="btn-back">⬅ Visitar la tienda</a>
-      
-      <br>
-      <br>
-
-      
-<div id="donate-button-container">
-<div id="donate-button"></div>
-<script src="https://www.paypalobjects.com/donate/sdk/donate-sdk.js" charset="UTF-8"></script>
-<script>
-PayPal.Donation.Button({
-env:'production',
-hosted_button_id:'UL7A2KTY4CA8J',
-image: {
-src:'https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif',
-alt:'Donate with PayPal button',
-title:'PayPal - The safer, easier way to pay online!',
-}
-}).render('#donate-button');
-</script>
-</div>
     </div>
 
-
-    
   </div>
 
-  <!-- COPYRIGHT -->
   <div class="footer-bottom">
-    © 2026 · Copyright MatPoloCapcha · MIAUPEDIA · Página para distraerme y mantenerme ocupado ❤️‍🩹
+    © 2026 · Copyright MatPoloCapcha · MIAUPEDIA ❤️‍🩹
   </div>
 </footer>

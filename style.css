@@ -1,10 +1,11 @@
 /* =========================
-   RESET BÁSICO
+   RESET
 ========================= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Poppins', Arial, sans-serif;
 }
 
 /* =========================
@@ -19,14 +20,11 @@ body {
   );
   color: #ffffff;
   min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
-  padding-top: 120px;
+  padding-top: 130px;
 }
 
-
-
 /* =========================
-   HEADER (FIJO ARRIBA)
+   HEADER
 ========================= */
 .header {
   position: fixed;
@@ -34,139 +32,52 @@ body {
   left: 0;
   width: 100%;
   z-index: 1000;
-
   text-align: center;
-  padding: 20px 20px;
-
+  padding: 24px 20px;
   background: linear-gradient(
     135deg,
     #7d4622,
     #d66238,
     #bd5e1e
   );
-
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
 }
 
-.header h1 {
-  font-size: 2.2rem;
-  margin-bottom: 6px;
-  color: #ffffff;
+/* TÍTULO */
+.site-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 1px;
 }
 
-.header p {
-  font-size: 0.95rem;
-  opacity: 0.9;
-}
-
-/* =========================
-   CONTENEDOR PRINCIPAL
-========================= */
-.container {
-  max-width: 1100px;
-  margin: auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 30px;
-  padding: 20px;
-}
-
-/* =========================
-   CARD
-========================= */
-.card {
-  background: rgba(255, 255, 255, 0.12);
-  padding: 25px;
-  border-radius: 20px;
-  text-decoration: none;
-  color: #ffffff;
-  text-align: center;
-  overflow: hidden;
-  min-height: 420px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-}
-
-/* =========================
-   IMÁGENES
-========================= */
-.img-box {
-  width: 100%;
-  height: 180px;
-  display: flex;
+/* LINK */
+.site-title a {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 15px;
-}
-
-.img-box img {
-  max-width: 85%;
-  max-height: 100%;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-}
-
-.card:hover .img-box img {
-  transform: scale(1.08);
-}
-
-/* =========================
-   TEXTO CARDS
-========================= */
-.card h2 {
-  margin-bottom: 10px;
-  font-size: 1.4rem;
-}
-
-.card p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  opacity: 0.95;
-}
-
-/* =========================
-   CONTENIDO INTERNO
-========================= */
-.content {
-  max-width: 800px;
-  margin: auto;
-  padding: 50px 20px;
-  text-align: center;
-}
-
-.content h1 {
-  font-size: 2.4rem;
-  margin-bottom: 20px;
-}
-
-.content p {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  margin-bottom: 18px;
-}
-
-/* =========================
-   BOTÓN
-========================= */
-.btn {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 12px 28px;
-  background: #ffffff;
-  color: #3b1f0f;
-  border-radius: 30px;
+  gap: 10px;
   text-decoration: none;
-  font-weight: 700;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #ffffff;
+  transition: transform 0.25s ease, text-shadow 0.25s ease;
 }
 
-.btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+/* TEXTO GRADIENTE */
+.site-title span {
+  background: linear-gradient(90deg, #fff7ed, #ffe1c2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* HOVER */
+.site-title a:hover {
+  transform: translateY(-2px) scale(1.05);
+  text-shadow: 0 12px 30px rgba(0,0,0,0.45);
+}
+
+/* SUBTÍTULO */
+.header p {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #ffe8d1;
 }
 
 /* =========================
@@ -174,7 +85,7 @@ body {
 ========================= */
 .site-footer {
   width: 100%;
-  align-self: stretch;
+  margin-top: 80px;
   background: linear-gradient(
     135deg,
     #4e2a1a,
@@ -182,12 +93,8 @@ body {
     #a8572b
   );
   color: #ffffff;
-  margin-top: 60px;
-   
 }
 
-
-/* CONTENEDOR FOOTER */
 .footer-container {
   max-width: 1100px;
   margin: auto;
@@ -197,26 +104,14 @@ body {
   gap: 40px;
 }
 
-/* LOGO */
 .footer-logo {
   font-size: 1.8rem;
   font-weight: 800;
-  margin-bottom: 10px;
 }
 
-.footer-logo span {
-  margin-left: 5px;
-}
-
-/* TEXTO */
 .footer-about p {
-  line-height: 1.6;
   font-size: 0.95rem;
-}
-
-/* REDES */
-.footer-social {
-  margin-top: 15px;
+  line-height: 1.6;
 }
 
 .footer-social a {
@@ -224,63 +119,35 @@ body {
   margin-right: 10px;
   width: 36px;
   height: 36px;
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-  text-align: center;
   line-height: 36px;
+  text-align: center;
   border-radius: 50%;
-  font-weight: bold;
+  background: rgba(255,255,255,0.15);
+  color: #fff;
   text-decoration: none;
-  transition: background 0.3s ease;
 }
 
 .footer-social a:hover {
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255,255,255,0.35);
 }
 
-/* CONTACTO */
-
-.footer-contact {
-  position: relative;
-}
-
-
-.footer-contact h3 {
-  margin-bottom: 10px;
-}
-
-.footer-contact a {
-  color: #ffffff;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.footer-contact a:hover {
-  text-decoration: underline;
-}
-
-/* COPYRIGHT */
 .footer-bottom {
   text-align: center;
   padding: 15px;
   font-size: 0.85rem;
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(0,0,0,0.2);
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
 @media (max-width: 768px) {
-  .header h1 {
-    font-size: 2.3rem;
+  .site-title {
+    font-size: 2.1rem;
   }
 
   .footer-container {
     grid-template-columns: 1fr;
     text-align: center;
-  }
-
-  .footer-social {
-    justify-content: center;
   }
 }

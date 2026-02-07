@@ -4,7 +4,61 @@
   <meta charset="UTF-8">
   <title>MIAUPEDIA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  /* HEADER */
+.header {
+  text-align: center;
+  padding: 40px 20px 28px;
+  background: linear-gradient(
+    135deg,
+    #a84723,
+    #d66238,
+    #bd5e1e
+  );
+  color: #ffffff;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+}
 
+/* TÍTULO */
+.site-title {
+  margin: 0;
+  font-size: 2.6rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* LINK DEL TÍTULO */
+.site-title a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #ffffff;
+  transition: transform 0.25s ease, text-shadow 0.25s ease, opacity 0.25s ease;
+}
+
+/* TEXTO MIAUPEDIA */
+.site-title span {
+  background: linear-gradient(90deg, #fff7ed, #ffe1c2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* HOVER ELEGANTE */
+.site-title a:hover {
+  transform: translateY(-2px) scale(1.03);
+  text-shadow: 0 10px 25px rgba(0,0,0,0.35);
+  opacity: 0.95;
+}
+
+/* SUBTÍTULO */
+.header p {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffe8d1;
+}
+  </style>
   <!-- ============================= -->
   <!-- FAVICON -->
   <!-- ============================= -->
@@ -85,7 +139,11 @@
   </noscript>
 
   <header class="header">
-    <h1>MIAUPEDIA</h1>
+    <h1 class="site-title">
+    <a href="{{ site.baseurl }}/index.html" aria-label="Ir al inicio">
+      🐱 <span>MIAUPEDIA</span>
+    </a>
+  </h1>
     <p>Entender, cuidar y disfrutar la vida con gatos</p>
   </header>
 
